@@ -33,5 +33,5 @@ Step 2: Start a local Python HTTP server
   python -m http.server 8000
 
   Step 3: Open your browser
-Navigate to the following address in your web browser:
-http://localhost:8000
+    Navigate to the following address in your web browser:
+    http://localhost:8000

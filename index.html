@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PrintFlow | Premium 3D Market</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    
+    <script async src="https://unpkg.com/es-module-shims@1.8.0/dist/es-module-shims.js"></script>
+    <script type="importmap">
+      {
+        "imports": {
+          "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+          "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/"
+        }
+      }
+    </script>
+</head>
+<body>
+
+    <div class="main-wrapper">
+        
+        <nav class="navbar">
+            <div class="logo">PrintFlow</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#upload">Print Custom</a></li>
+                <li><a href="#marketplace">Marketplace</a></li>
+                <li><a href="#cart" class="cart-link">Cart (<span id="cart-count">0</span>)</a></li>
+            </ul>
+            <button class="btn-dark">Log In</button>
+        </nav>
+
+        <section id="home" class="hero-section">
+            <div class="hero-content">
+                <span class="badge">New: Resin Printing Available 🎉</span>
+                <h1 class="hero-title">Bring Your Digital Ideas to the Physical World</h1>
+                <p class="hero-text">Upload your 3D models, preview them instantly in our browser-based interactive viewer, and order high-quality physical prints delivered right to your door.</p>
+                <div class="hero-buttons">
+                    <a href="#upload" class="btn-primary">Upload STL File</a>
+                    <a href="#marketplace" class="btn-outline">Browse Marketplace</a>
+                </div>
+            </div>
+            <div class="hero-image-container">
+                <img src="images/hero-printer.jpg" alt="Professional 3D Printer" class="hero-image">
+            </div>
+        </section>
+
+        <section class="features-section">
+            <div class="feature-box">
+                <div class="feature-icon">📁</div>
+                <h3>1. Upload</h3>
+                <p>Drag and drop your custom STL files into our secure viewer.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">👁️</div>
+                <h3>2. Preview</h3>
+                <p>Check the scale, rotation, and details in full 3D before you buy.</p>
+            </div>
+            <div class="feature-box">
+                <div class="feature-icon">📦</div>
+                <h3>3. Print & Ship</h3>
+                <p>Select your material and color, and we handle the rest.</p>
+            </div>
+        </section>
+
+        <section id="upload" class="upload-section">
+            <h2 class="section-title">Upload & Configure</h2>
+            
+            <div class="upload-box">
+                <p><strong>Upload Your 3D Model (.stl)</strong></p>
+                <input type="file" id="stl-upload" accept=".stl">
+            </div>
+
+            <div id="canvas-container"></div>
+
+            <div id="product-actions" class="action-bar" style="display: none;">
+                <div class="price-info">
+                    <span class="price-label">Estimated Print Cost:</span>
+                    <span class="price-value">Rs. 499</span>
+                </div>
+                <button id="add-to-cart-btn" class="btn-primary">Add Custom Print to Cart</button>
+            </div>
+        </section>
+
+        <section id="marketplace" class="products-section">
+            <h2 class="section-title" style="text-align: center; margin-top: 40px;">Featured Products</h2>
+            
+            <div class="filter-container">
+                <button class="filter-pill active">All Models</button>
+                <button class="filter-pill">Robotics</button>
+                <button class="filter-pill">Gaming</button>
+                <button class="filter-pill">Toys</button>
+            </div>
+
+            <div class="product-grid">
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/robotic-arm.jpg" alt="3D Printed Robotic Arm">
+                    </div>
+                    <div class="product-info">
+                        <h3>Robotic Arm Kit</h3>
+                        <p class="author">PLA Plastic Parts</p>
+                        <div class="card-footer">
+                            <span class="product-price">Rs. 1450</span>
+                            <button class="btn-small add-marketplace-item" data-name="Robotic Arm Kit" data-price="1450">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/retro-shell.jpg" alt="Retro Console Shell">
+                    </div>
+                    <div class="product-info">
+                        <h3>Retro Console Shell</h3>
+                        <p class="author">Custom Handheld Casing</p>
+                        <div class="card-footer">
+                            <span class="product-price">Rs. 800</span>
+                            <button class="btn-small add-marketplace-item" data-name="Retro Console Shell" data-price="800">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="product-card">
+                    <div class="product-image">
+                        <img src="images/robot-toy.jpg" alt="Articulated Robot Toy">
+                    </div>
+                    <div class="product-info">
+                        <h3>Articulated Robot Toy</h3>
+                        <p class="author">Free Moving Joints</p>
+                        <div class="card-footer">
+                            <span class="product-price">Rs. 350</span>
+                            <button class="btn-small add-marketplace-item" data-name="Articulated Robot Toy" data-price="350">Add to Cart</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="cart" class="cart-section">
+            <h2 class="section-title">Your Shopping Cart</h2>
+            <div class="cart-container">
+                <div id="cart-items-container">
+                    <p class="empty-cart-msg">Your cart is currently empty. Add some items to get started!</p>
+                </div>
+                
+                <div class="cart-summary">
+                    <h3>Order Summary</h3>
+                    <div class="summary-row">
+                        <span>Subtotal</span>
+                        <span id="cart-subtotal">Rs. 0</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>Delivery</span>
+                        <span>Rs. 50</span>
+                    </div>
+                    <hr>
+                    <div class="summary-row total-row">
+                        <span>Total</span>
+                        <span id="cart-total">Rs. 0</span>
+                    </div>
+                    <button class="btn-primary full-width" style="margin-top: 20px;">Proceed to Checkout</button>
+                </div>
+            </div>
+        </section>
+
+        <footer class="site-footer">
+            <div class="footer-content">
+                <div class="logo" style="color: white;">PrintFlow</div>
+                <p>Bringing your digital creations into the physical world with precision and speed.</p>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 PrintFlow Marketplace. All rights reserved.</p>
+            </div>
+        </footer>
+
+    </div>
+
+    <script type="module" src="script.js"></script>
+</body>
+</html>

@@ -30,7 +30,6 @@ Because this project uses modern JavaScript ES modules (to load Three.js), it mu
    cd 3dstore 
 
    Start a local Python HTTP server:
-    # If you use Python 3
 python -m http.server 8000
 
     Open your browser and navigate to:

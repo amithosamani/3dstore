@@ -15,7 +15,7 @@ PrintFlow is a modern, interactive web application that allows users to upload c
 ## 🛠️ Tech Stack
 
 * **Frontend:** HTML5, CSS3, Vanilla JavaScript
-* **3D Rendering:** [Three.js](https://threejs.org/) (Loaded via ES modules & import maps)
+* **3D Rendering:** Three.js (Loaded via ES modules & import maps)
 * **Icons & Typography:** Google Fonts (Poppins)
 
 ## 🚀 How to Run Locally
@@ -24,13 +24,14 @@ Because this project uses modern JavaScript ES modules (to load Three.js), it mu
 
 **Prerequisites:** You need Python installed on your computer.
 
-1. Clone the repository:
-   ```bash
-   git clone [https://github.com/amithosamani/3dstore.git](https://github.com/amithosamani/3dstore.git)
-   cd 3dstore 
+### Step 1: Clone the repository
+```bash
+git clone [https://github.com/amithosamani/3dstore.git](https://github.com/amithosamani/3dstore.git)
+cd 3dstore
 
-   Start a local Python HTTP server:
-python -m http.server 8000
+Step 2: Start a local Python HTTP server
+  python -m http.server 8000
 
-    Open your browser and navigate to:
-        http://localhost:8000
+  Step 3: Open your browser
+Navigate to the following address in your web browser:
+http://localhost:8000
